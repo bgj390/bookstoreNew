@@ -47,6 +47,7 @@ public class BookController {
     @RequestMapping(value="edit/save", method = RequestMethod.POST)
     public String eSave(Book book) {
         repository.save(book);
+        repository.deleteById(book.getId() -1);
         return "redirect:../booklist";
     }
 } 
