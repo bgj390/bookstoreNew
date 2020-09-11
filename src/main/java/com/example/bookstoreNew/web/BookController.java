@@ -24,4 +24,14 @@ public class BookController {
 		model.addAttribute("books", repository.findAll());
 		return "booklist";
 	}
+    @RequestMapping(value = "/add")
+    public String addBook(Model model){
+    	model.addAttribute("book", new Book());
+        return "addbook";
+    } 
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String deleteBook(@PathVariable("id") Long bookId, Model model) {
+    	repository.deleteById(bookId);
+        return "redirect:../booklist";
+    } 
 }
