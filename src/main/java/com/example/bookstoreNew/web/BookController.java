@@ -15,10 +15,7 @@ public class BookController {
 	@Autowired 
 	private BookRepository repository;
 
-//	@RequestMapping(value="/index", method = RequestMethod.GET)
-//	public String greetingForm(Model model) {
-//		return "index";
-//	}
+
 	@RequestMapping(value="/booklist", method = RequestMethod.GET)
 	public String booklist(Model model) {
 		model.addAttribute("books", repository.findAll());
@@ -44,10 +41,4 @@ public class BookController {
     	model.addAttribute("book", repository.findById(bookId));
     	return "editbook";
     }
-  //  @RequestMapping(value="edit/save", method = RequestMethod.POST)
-  //  public String eSave(Book book) {
-  //      repository.save(book);
-  //      repository.deleteById(book.getId() -1);
-  //      return "redirect:../booklist";
-  //  }
 } 
