@@ -7,6 +7,9 @@
 </head>
 <body>
 	<h1>Add book</h1>
+	<div class="col-md-4">
+		<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+	</div>
 	<div>
 		<form th:object="${book}" th:action="@{save}" action="#" method="post">
 		  	<label for="author">AUTHOR</label>
