@@ -32,11 +32,5 @@ public class UserDetailServiceImpl implements UserDetailsService  {
         		AuthorityUtils.createAuthorityList(curruser.getRole()));
         return user;
     }       
-    @Autowired
-    private UserDetailServiceImpl userDetailsService;
-    
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-    	auth.userDetailsService(userDetailsService).passwordEncoder(new
-    			BCryptPasswordEncoder());}
+
 } 
