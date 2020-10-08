@@ -32,10 +32,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
         .authorizeRequests()
-        .antMatchers("/css/**").permitAll() // Enable css when logged out
-   //     .antMatchers("/admin/**").hasRole("ADMIN")
-        .and()
-        .authorizeRequests()
           .anyRequest().authenticated()
           .and()
       .formLogin()
@@ -45,8 +41,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
           .and()
       .logout()
           .permitAll();
-    }
-   @Bean
+    } /**
+    @Bean
     @Override
     public UserDetailsService userDetailsService() {
         List<UserDetails> users = new ArrayList();
@@ -67,7 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     	users.add(user);
     	
         return new InMemoryUserDetailsManager(users);
-    }
+    }	**/
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
