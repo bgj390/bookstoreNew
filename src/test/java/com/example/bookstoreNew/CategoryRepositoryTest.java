@@ -34,4 +34,18 @@ public class CategoryRepositoryTest {
 		assertThat(cat.getCategoryId()).isNotNull();
 	}
 	
+	@Test
+	public void shouldDeleteById() {
+		Category cat1 = new Category("History");
+		Category cat2 = new Category("Comic");
+		repository.save(cat1);
+		repository.save(cat2);
+		
+		repository.deleteById(cat1.getCategoryId());
+		Iterable<Category> cats = repository.findAll();
+		
+		assertThat(cats).hasSize(5);
+		assertThat(cats).doesNotContain(cat1);
+	}
+	
 }

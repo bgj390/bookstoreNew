@@ -35,4 +35,13 @@ public class BookRepositoryTest {
 		repository.save(book);
 		assertThat(book.getId()).isNotNull();
 	}
+	
+	@Test
+	public void shouldDeleteAll() {
+		repository.deleteAll();
+		Iterable<Book> books = repository.findAll();
+		
+		assertThat(books).hasSize(0);
+
+	}
 }
