@@ -25,7 +25,7 @@ public class BookController {
 	private CategoryRepository crepository;
 
 	// Show all books
-    @RequestMapping(value="/")
+    @RequestMapping(value="/login")
     public String login() {	
         return "login";
     }
